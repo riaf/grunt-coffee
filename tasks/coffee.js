@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     var dest = this.file.dest,
         options = this.data.options;
     grunt.file.expandFiles(this.file.src).forEach(function(filepath) {
-      grunt.helper('coffee', filepath, dest, options);
+      grunt.helper('coffee', filepath, dest, JSON.parse(JSON.stringify(options)));
     });
 
     if (grunt.task.current.errorCount) {
